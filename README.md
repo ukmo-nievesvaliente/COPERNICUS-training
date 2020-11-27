@@ -1,2 +1,2 @@
 # COPERNICUS-training
-Code cloned from MOLevel1-wavetools for COPERNICUS training
+Code for COPERNICUS training. Structure cloned from ukmo-andysaulter/MOLevel1-wavetools. 
