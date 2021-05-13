@@ -20,7 +20,7 @@ class varGrid:
         self.fclead   = None  # numeric value for forecast lead time (in seconds)
         self.data     = None  # variable data
         self.units    = None  # variable units
-     
+
     def loadGrid(self, ncfile, var, twindow=[0,None], xyindices=None):
         """Load data from CMEMS wave product file"""
         print('[INFO] Loading %s data from %s' %(var,ncfile))
@@ -50,7 +50,7 @@ class varGrid:
         if xyindices is not None:
             self.data = self.data[:,xyindices[:,1],xyindices[:,0]]
         if 'forecast_reference_time' in d.variables:
-            self.fcref = nc.num2date(d.variables['forecast_reference_time'][:], 
+            self.fcref = nc.num2date(d.variables['forecast_reference_time'][:],
                            units=d.variables['forecast_reference_time'].units)
         d.close()
 
@@ -65,7 +65,7 @@ class varGrid:
 
 # file naming and inspection
 
-def genfilename(cycle, fcday=0, mfc='metoffice', cfg='amm15', domain='NWS', 
+def genfilename(cycle, fcday=0, mfc='metoffice', cfg='amm15', domain='NWS',
                 reanalysis=False, datadir='.'):
     """Generates a CMEMS style file name based on input cycle and forecast day"""
 
@@ -147,7 +147,7 @@ def readWaveCMEMS(varname, cycle=None, filename=None, reanalysis=False, leadtime
 
     for i,tattr in enumerate(tlist):
         if filename is None:
-            ncfile = genfilename(cycle, fcday=tattr[0], mfc=mfc, cfg=cfg, domain=domain, 
+            ncfile = genfilename(cycle, fcday=tattr[0], mfc=mfc, cfg=cfg, domain=domain,
                                  reanalysis=reanalysis, datadir=datadir)
         else:
             ncfile = datadir + '/' + filename
